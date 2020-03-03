@@ -15,10 +15,12 @@ def main():
     interface = 'ietf-interfaces:interfaces'
 
     url = 'https://{host}:{port}/restconf/data/{interface}'.format(host=host, port=restconf_port, interface=interface)
-    headers = { 'Content-Type': 'application/vnd.yang.data+json',
-                'Accept': 'application/vnd.yang.data+json'}
+
+    headers = { 'Content-Type': 'application/yang.data+json',
+                'Accept': 'application/yang.data+json'}
 
 #    headers = { 'Content-Type': 'application/yang.data+json'}
+    bgp_url = 'https://{}/restconf/data/Cisco-NX-OS-device:System/bgp-items/inst-items/dom-items/Dom-list=default/peer-items/Peer-list'.format(host)
 
 
     url = 'https://{}:{}/restconf/api/running/'.format(host,restconf_port)
@@ -27,7 +29,7 @@ def main():
     print(url)
 
 
-    response = requests.get(url, auth=(username, password), headers=headers, verify=False)
+    response = requests.get(bgp_url, auth=(username, password), headers=headers, verify=False)
 
 
     print(response.text)
