@@ -15,12 +15,11 @@ def main():
     headers = { 'Content-Type': 'application/yang.data+json',
                 'Accept': 'application/yang.data+json'}
 
-    url = 'https://{}/restconf/data/Cisco-NX-OS-device:System?content=config'.format(host)
-
+    url = 'https://{}/restconf/data/netconf-state/capabilities'.format(host)
     print(url)
 
     response = requests.get(url, auth=(username, password), headers=headers, verify=False)
-
+    
     print(response.text)
     
 if __name__ == '__main__':
