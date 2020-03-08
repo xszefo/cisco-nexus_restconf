@@ -15,7 +15,7 @@ def main():
     headers = { 'Content-Type': 'application/yang.data+json',
                 'Accept': 'application/yang.data+json'}
 
-    url = 'https://{}/restconf/data/openconfig-system/openconfig-inet-types:domain-name/'.format(host)
+    url = 'https://{}/restconf/data/cisco-nx-os-device:system/arp-items/'.format(host)
     #url = 'https://{}/restconf/data/Cisco-IOS-XE-device-hardware-oper:device-hardware-data/device-hardware'.format(host)
     
     print(url)
