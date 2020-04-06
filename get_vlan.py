@@ -15,12 +15,11 @@ def main():
     headers = { 'Content-Type': 'application/yang.data+json',
                 'Accept': 'application/yang.data+json'}
 
-    url = 'https://{}/restconf/data/netconf-state/capabilities'.format(host)
-    url = 'https://{}/restconf/data/ietf-restconf-monitoring:restconf-state/capabilities'.format(host)
+    url = 'https://{}/restconf/data/openconfig-vlan:vlan-config'.format(host)
     print(url)
 
     response = requests.get(url, auth=(username, password), headers=headers, verify=False)
-    
+
     print(response.text)
     
 if __name__ == '__main__':
