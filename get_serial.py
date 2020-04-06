@@ -15,7 +15,7 @@ def main():
     headers = { 'Content-Type': 'application/yang.data+json',
                 'Accept': 'application/yang.data+json'}
 
-    url = 'https://{}/restconf/data/cisco-nx-os-device:system-group/serial'.format(host)
+    url = 'https://{}/restconf/data/cisco-nx-os-device:system/serial'.format(host)
     #url = 'https://{}/restconf/data/Cisco-IOS-XE-device-hardware-oper:device-hardware-data/device-hardware'.format(host)
     
     print(url)

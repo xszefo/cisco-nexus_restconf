@@ -16,6 +16,7 @@ def main():
                 'Accept': 'application/yang.data+json'}
 
     url = 'https://{}/restconf/data/netconf-state/capabilities'.format(host)
+
     print(url)
 
     response = requests.get(url, auth=(username, password), headers=headers, verify=False)
