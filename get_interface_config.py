@@ -15,7 +15,8 @@ def main():
     headers = { 'Content-Type': 'application/yang.data+json',
                 'Accept': 'application/yang.data+json'}
 
-    url = 'https://{}/restconf/data/openconfig-interfaces:interfaces/interface=lo1?content=config'.format(host) 
+    url = 'https://{}/restconf/data/openconfig-interfaces:interfaces/interface=lo1?content=config'.format(host)
+
     print(url)
 
     response = requests.get(url, auth=(username, password), headers=headers, verify=False)
