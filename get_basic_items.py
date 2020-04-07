@@ -15,14 +15,18 @@ def main():
     headers = { 'Content-Type': 'application/yang.data+json',
                 'Accept': 'application/yang.data+json'}
 
-    url = 'https://{}/restconf/data/Cisco-NX-OS-device:System/serial'.format(host)
+
+    get_items = ['serial', 'systemUpTime', 'name', 'currentTime']
+
+    for item in get_items:
+        url = 'https://{}/restconf/data/Cisco-NX-OS-device:System/{}'.format(host, item)
     #url = 'https://{}/restconf/data/Cisco-IOS-XE-device-hardware-oper:device-hardware-data/device-hardware'.format(host)
    
-    print(url)
+        print(url)
 
-    response = requests.get(url, auth=(username, password), headers=headers, verify=False)
+        response = requests.get(url, auth=(username, password), headers=headers, verify=False)
 
-    print(response.text)
+        print(response.text)
     
 if __name__ == '__main__':
     main()
