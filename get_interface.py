@@ -16,11 +16,8 @@ def main():
                 'Accept': 'application/yang.data+json'}
 
     url = 'https://{}/restconf/data/openconfig-interfaces:interfaces/interface=lo1'.format(host)
-    
     print(url)
-
     response = requests.get(url, auth=(username, password), headers=headers, verify=False)
-
     print(response.text)
     
 if __name__ == '__main__':
