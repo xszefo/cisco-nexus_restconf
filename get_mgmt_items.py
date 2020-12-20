@@ -16,16 +16,21 @@ def main():
                 'Accept': 'application/yang.data+json'}
 
 
-    url = 'https://{}/restconf/data/Cisco-NX-OS-device:System/mac-items'.format(host) 
+    url = 'https://{}/restconf/data/Cisco-NX-OS-device:System/mgmt-items'.format(host) 
     
     print(url)
 
     response = requests.get(url, auth=(username, password), headers=headers, verify=False)
 
-    response_json = response.json()['mac-items']['table-items']['vlan-items']['MacAddressEntry-list']
+    response_json = response.json()['mgmt-items']['MgmtIf-list'][0]
 
-    for line in response_json:
-        print(f'MAC: {line["macAddress"]} on VLAN {line["vlan"]}')
+    interface = response_json['id']
+    description = response_json['descr']
+    mtu = response_json['mtu']
+    last_flap = ' '.join(response_json['mgmt-items']['lastLinkStChg'].split('T'))
+     
+    print(f'{interface} has a description {description}\nMTU: {mtu}\nLast flapped: {last_flap}')
+        
 
 if __name__ == '__main__':
     main()

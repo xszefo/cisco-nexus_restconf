@@ -16,7 +16,9 @@ def main():
                 'Accept': 'application/yang.data+json'}
 
 
-    get_items = ['serial', 'systemUpTime', 'name', 'currentTime']
+    get_items = ['serial', 'name', 'systemUpTime', 'currentTime', 'time-items/clock']
+	
+    req_session = requests.session()
 
     for item in get_items:
         url = 'https://{}/restconf/data/Cisco-NX-OS-device:System/{}'.format(host, item)
@@ -24,7 +26,7 @@ def main():
    
         print(url)
 
-        response = requests.get(url, auth=(username, password), headers=headers, verify=False)
+        response = req_session.get(url, auth=(username, password), headers=headers, verify=False)
 
         print(response.text)
     
