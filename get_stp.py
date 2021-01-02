@@ -30,7 +30,6 @@ def main():
                vlans.append(vlan['vlan-id'])
         print(f'VLANS: {sorted(vlans)}')
 
-    
     #url = f'https://{host}:{restconf_port}/restconf/data/openconfig-spanning-tree:stp/interfaces'
 
     #print(url)
